@@ -1,4 +1,4 @@
-# A blockchain-based approach for digital archives:  a decentralized Ethereum application for the safeguarding of the cultural heritage.
+# A decentralized Ethereum application for the safeguarding of the cultural heritage.
 
 To get the project up and running follow these steps:
 
