@@ -73,7 +73,6 @@ Open a new terminal and type:
 ```
 $ cd DEV-ENV
 $ docker-compose up ipfs_peer1
-$ docker-compose stop openiccd_oa_migration openiccd_ra_migration
 ```
 
 ## Step 9. Enable CORS on ipfs_peer1
