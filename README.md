@@ -38,6 +38,7 @@ $ docker-compose up openiccd_ra_migration
 ## Step 6. Start Kibana
 Open a new terminal and type:
 ```
+$ cd DEV-ENV
 $ docker-compose up kibana
 ```
 - Open Kibana UI: http://localhost:5601 
@@ -63,6 +64,7 @@ If you get,respectively, 100 hits and 77 hits data migration has completed succe
 ## Step 7. Stop openiccd_oa_migration and openiccd_ra_migration
 After all records have been migrated, open a new terminal and type:
 ```
+$ cd DEV-ENV
 $ docker-compose stop openiccd_oa_migration openiccd_ra_migration
 ```
 
