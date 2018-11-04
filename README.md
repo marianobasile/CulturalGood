@@ -111,7 +111,9 @@ $ ./utils/init_dapp.sh
 ```
 
 ## Step 14. Setup metamask and import accounts
-Setup metamask and then import accounts exposed by ganache_cli
+- Setup metamask.
+- Import accounts exposed by ganache_cli.
+- Switch to localhost 8545.
 
 ## Step 15. Launch lite-server
 Use cultural_good_app container terminal to launch lite-server for serving web-pages:
