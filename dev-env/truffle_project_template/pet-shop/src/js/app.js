@@ -52,10 +52,10 @@ App = {
 
 
   init: function() {
-  	App.localStorage.removeItem('isOATransactionAccepted');
-  	App.localStorage.removeItem('isRATransactionAccepted');
-  	App.localStorage.removeItem('rawCipherKey');
-  	App.localStorage.removeItem('cipherIV');
+  	//App.localStorage.removeItem('isOATransactionAccepted');
+  	//App.localStorage.removeItem('isRATransactionAccepted');
+  	//App.localStorage.removeItem('rawCipherKey');
+  	//App.localStorage.removeItem('cipherIV');
     return App.initWeb3();
   },
 
