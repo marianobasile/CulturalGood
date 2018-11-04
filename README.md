@@ -2,6 +2,12 @@
 
 To get the project up and running follow these steps:
 
+## Dependencies
+The followings are required:
+- Docker(for Windows): https://docs.docker.com/docker-for-windows/install/
+- Docker (for Mac): https://docs.docker.com/docker-for-mac/install/
+- Metamask: https://metamask.io/
+
 ## Step 1. Clone the project
 `git clone https://github.com/marianobasile/CulturalGood`
 
