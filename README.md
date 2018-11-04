@@ -96,7 +96,7 @@ $ cd DEV-ENV
 $ docker-compose up cultural_good
 ```
 
-## Step 12. Attach to cultural_good_app container & init Dapp
+## Step 12. Attach to cultural_good_app container
 Open a new terminal and type:
 ```
 $ cd DEV-ENV
