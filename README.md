@@ -40,8 +40,8 @@ Open a new terminal and type:
 ```
 $ docker-compose up kibana
 ```
-Kibana will be available at: http://localhost:5601
-Go under Dev Tools and copy the following:
+- Open Kibana UI: http://localhost:5601 
+- Go under Dev Tools and copy the following:
 
 GET oa3_0/_search?pretty
 {
