@@ -41,6 +41,23 @@ Open a new terminal and type:
 $ docker-compose up kibana
 ```
 Kibana will be available at: http://localhost:5601
+Go under Dev Tools and copy the following:
+
+GET oa3_0/_search?pretty
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+GET ra3_0/_search?pretty
+{
+  "query": {
+    "match_all": {}
+  }
+}
+
+If you get,respectively, 100 hits and 77 hits data migration has completed successfully.
 
 
 ## Step 7. Stop openiccd_oa_migration and openiccd_ra_migration
