@@ -103,16 +103,17 @@ $ cd DEV-ENV
 $ docker attach cultural_good_app
 ```
 
+## Step 13. Finalize data migration, compile and deploy smart contract
 Once done, type:
 ```
 $ cd cultural-good
 $ ./utils/init_dapp.sh
 ```
 
-## Step 13. Setup metamask and import accounts
+## Step 14. Setup metamask and import accounts
 Setup metamask and then import accounts exposed by ganache_cli
 
-## Step 14. Launch lite-server
+## Step 15. Launch lite-server
 Use cultural_good_app container terminal to launch lite-server for serving web-pages:
 ```
 $ npm run dev
