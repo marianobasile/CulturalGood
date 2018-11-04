@@ -116,7 +116,7 @@ $ ./utils/init_dapp.sh
 - Switch to localhost 8545.
 
 ## Step 15. Launch lite-server
-Use cultural_good_app container terminal to launch lite-server for serving web-pages:
+Use cultural_good_app container terminal to launch lite-server for serving the client-side of the Dapp:
 ```
 $ npm run dev
 ```
