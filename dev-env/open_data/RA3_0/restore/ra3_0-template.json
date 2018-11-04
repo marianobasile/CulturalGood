@@ -1,0 +1,1421 @@
+{
+  "order": 0,
+  "index_patterns": [
+    "ra*_*"
+  ],
+  "version": 1,
+  "settings": {
+    "index.refresh_interval": "1s",
+    "number_of_shards": 1,
+    "auto_expand_replicas": "0-1",
+    "number_of_replicas": "0"
+  },
+  "mappings": {
+    "doc": {
+      "properties": {
+        "category": {
+          "type": "keyword"
+        },
+        "disciplinarySector": {
+          "type": "keyword"
+        },
+        "typology": {
+          "type": "keyword"
+        },
+        "img_url": {
+          "type": "keyword"
+        },
+        "img_extension": {
+          "type": "keyword"
+        },
+        "fingerprint": {
+          "type": "keyword"
+        },
+        "img_ipfs_hash": {
+          "type": "keyword"
+        },
+        "cd": {
+          "properties": {
+            "tsk": {
+              "type": "keyword"
+            },
+            "lir": {
+              "type": "keyword"
+            },
+            "nct": {
+              "properties": {
+                "nctr": {
+                  "type": "keyword"
+                },
+                "nctn": {
+                  "type": "keyword"
+                },
+                "ncts": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "esc": {
+              "type": "keyword"
+            },
+            "ecp": {
+              "type": "keyword"
+            },
+            "epr": {
+              "type": "keyword"
+            }
+          }
+        },
+        "rv": {
+          "properties": {
+            "rve": {
+              "properties": {
+                "rvel": {
+                  "type": "half_float"
+                },
+                "rver": {
+                  "type": "keyword"
+                },
+                "rves": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "rse": {
+              "type": "nested",
+              "properties": {
+                "rser": {
+                  "type": "keyword"
+                },
+                "rset": {
+                  "type": "keyword"
+                },
+                "rsec": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "roz": {
+              "type": "keyword"
+            }
+          }
+        },
+        "ac": {
+          "properties": {
+            "acc": {
+              "type": "keyword"
+            },
+            "acs": {
+              "type": "nested",
+              "properties": {
+                "acse": {
+                  "type": "keyword"
+                },
+                "acsc": {
+                  "type": "keyword"
+                },
+                "acss": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        },
+        "og": {
+          "properties": {
+            "ogt": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "sgt": {
+              "properties": {
+                "sgti": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "sgtt": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "lc": {
+          "properties": {
+            "pvc": {
+              "properties": {
+                "pvcs": {
+                  "type": "keyword"
+                },
+                "pvcr": {
+                  "type": "keyword"
+                },
+                "pvcp": {
+                  "type": "keyword"
+                },
+                "pvcc": {
+                  "type": "keyword"
+                },
+                "pvcl": {
+                  "type": "keyword"
+                },
+                "pvce": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "pvl": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            },
+            "pve": {
+              "type": "keyword"
+            },
+            "ldc": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "ub": {
+          "properties": {
+            "inv": {
+              "type": "nested",
+              "properties": {
+                "invn": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "invd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "invc": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "sti": {
+              "type": "nested",
+              "properties": {
+                "stis": {
+                  "type": "keyword"
+                },
+                "stid": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "stim": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "la": {
+          "type": "nested",
+          "properties": {
+            "tcl": {
+              "type": "keyword"
+            },
+            "prv": {
+              "properties": {
+                "prvs": {
+                  "type": "keyword"
+                },
+                "prvr": {
+                  "type": "keyword"
+                },
+                "prvp": {
+                  "type": "keyword"
+                },
+                "prvc": {
+                  "type": "keyword"
+                },
+                "prvl": {
+                  "type": "keyword"
+                },
+                "prve": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "prl": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            },
+            "pre": {
+              "type": "keyword"
+            },
+            "prc": {
+              "properties": {
+                "prct": {
+                  "type": "keyword"
+                },
+                "prcq": {
+                  "type": "keyword"
+                },
+                "prcd": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "prcc": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "prcu": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "prcm": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "prcs": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "prd": {
+              "properties": {
+                "prdi": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "prdu": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                }
+              }
+            }
+          }
+        },
+        "cs": {
+          "type": "nested",
+          "properties": {
+            "ctl": {
+              "type": "keyword"
+            },
+            "cts": {
+              "type": "nested",
+              "properties": {
+                "ctsc": {
+                  "type": "keyword"
+                },
+                "ctsf": {
+                  "type": "keyword"
+                },
+                "ctsn": {
+                  "type": "keyword"
+                },
+                "ctsp": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "gp": {
+          "type": "nested",
+          "properties": {
+            "gpl": {
+              "type": "keyword"
+            },
+            "gpdpxy": {
+              "properties" : {
+                "ip": { "type": "ip" },
+                "location" : { "type" : "geo_point" },
+                "latitude" : { "type" : "float" },
+                "longitude" : { "type" : "float" }
+              }
+            },
+            "gpc": {
+              "properties": {
+                "gpct": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                },
+                "gpcl": {
+                  "type": "half_float"
+                }
+              }
+            },
+            "gpm": {
+              "type": "keyword"
+            },
+            "gpt": {
+              "type": "keyword"
+            },
+            "gpp": {
+              "type": "keyword"
+            },
+            "gpb": {
+              "properties": {
+                "gpbb": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "gpbt": {
+                  "type": "date",
+                  "format": "dd-MM-yyyy||yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "gpbo": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        },
+        "re": {
+          "properties": {
+            "rcg": {
+              "properties": {
+                "rcgu": {
+                  "type": "keyword"
+                },
+                "rcgc": {
+                  "type": "keyword"
+                },
+                "ncun": {
+                  "type": "keyword"
+                },
+                "rcga": {
+                  "type": "keyword"
+                },
+                "rcge": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "rcgm": {
+                  "type": "keyword"
+                },
+                "rcgd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "rcgh": {
+                  "type": "keyword"
+                },
+                "rcgs": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                },
+                "rcgz": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "dsc": {
+              "properties": {
+                "ncun": {
+                  "type": "keyword"
+                },
+                "scan": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "dscf": {
+                  "type": "keyword"
+                },
+                "dsca": {
+                  "type": "keyword"
+                },
+                "dsct": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "dscm": {
+                  "type": "keyword"
+                },
+                "dscd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "dsch": {
+                  "type": "keyword"
+                },
+                "dscu": {
+                  "type": "keyword"
+                },
+                "dscs": {
+                  "type": "keyword"
+                },
+                "dsci": {
+                  "type": "keyword"
+                },
+                "dscz": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                },
+                "dscn": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "ain": {
+              "type": "nested",
+              "properties": {
+                "aint": {
+                  "type": "keyword"
+                },
+                "aind": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "ainr": {
+                  "type": "keyword"
+                },
+                "ains": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "res": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "ro": {
+          "type": "nested",
+          "properties": {
+            "rof": {
+              "properties": {
+                "roff": {
+                  "type": "keyword"
+                },
+                "rofo": {
+                  "type": "keyword"
+                },
+                "rofs": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "rofa": {
+                  "type": "keyword"
+                },
+                "rofd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "rofc": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "rei": {
+              "type": "nested",
+              "properties": {
+                "reip": {
+                  "type": "keyword"
+                },
+                "reit": {
+                  "type": "keyword"
+                },
+                "reid": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "reis": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        },
+        "dt": {
+          "properties": {
+            "dtz": {
+              "properties": {
+                "dtzg": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                },
+                "dtzs": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "dts": {
+              "properties": {
+                "dtsi": {
+                  "type": "keyword"
+                },
+                "dtsv": {
+                  "type": "keyword"
+                },
+                "dtsf": {
+                  "type": "keyword"
+                },
+                "dtsl": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "dtm": {
+              "type": "keyword"
+            },
+            "adt": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "au": {
+          "properties": {
+            "aut": {
+              "type": "nested",
+              "properties": {
+                "auts": {
+                  "type": "keyword"
+                },
+                "autr": {
+                  "type": "keyword"
+                },
+                "autm": {
+                  "type": "keyword"
+                },
+                "ncun": {
+                  "type": "keyword"
+                },
+                "autn": {
+                  "type": "keyword"
+                },
+                "auta": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "auth": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "atb": {
+              "type": "nested",
+              "properties": {
+                "atbd": {
+                  "type": "keyword"
+                },
+                "atbm": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "aat": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            },
+            "cmm": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "mt": {
+          "properties": {
+            "mtc": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "mis": {
+              "type": "nested",
+              "properties": {
+                "misu": {
+                  "type": "keyword"
+                },
+                "misa": {
+                  "type": "half_float"
+                },
+                "misl": {
+                  "type": "half_float"
+                },
+                "misp": {
+                  "type": "half_float"
+                },
+                "misd": {
+                  "type": "half_float"
+                },
+                "misn": {
+                  "type": "half_float"
+                },
+                "miss": {
+                  "type": "half_float"
+                },
+                "misg": {
+                  "type": "half_float"
+                },
+                "misv": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "misr": {
+                  "type": "keyword"
+                },
+                "mist": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "co": {
+          "properties": {
+            "stc": {
+              "properties": {
+                "stcc": {
+                  "type": "keyword"
+                },
+                "stcs": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "rs": {
+          "properties": {
+            "rst": {
+              "type": "nested",
+              "properties": {
+                "rstd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "rsts": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "rste": {
+                  "type": "keyword"
+                },
+                "rstn": {
+                  "type": "keyword"
+                },
+                "rstr": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "alb": {
+              "type": "nested",
+              "properties": {
+                "albt": {
+                  "type": "keyword"
+                },
+                "albs": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                },
+                "albd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "alba": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            }
+          }
+        },
+        "da": {
+          "properties": {
+            "des": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            },
+            "isr": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            },
+            "stm": {
+              "type": "nested",
+              "properties": {
+                "stmc": {
+                  "type": "keyword"
+                },
+                "stmq": {
+                  "type": "keyword"
+                },
+                "stmi": {
+                  "type": "keyword"
+                },
+                "stmu": {
+                  "type": "short"
+                },
+                "stmp": {
+                  "type": "keyword"
+                },
+                "stmd": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "nsc": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            }
+          }
+        },
+        "tu": {
+          "properties": {
+            "acq": {
+              "properties": {
+                "acqt": {
+                  "type": "keyword"
+                },
+                "acqn": {
+                  "type": "keyword"
+                },
+                "acqd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "acql": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "cdg": {
+              "properties": {
+                "cdgg": {
+                  "type": "keyword"
+                },
+                "cdgs": {
+                  "type": "keyword"
+                },
+                "cdgi": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "nvc": {
+              "type": "nested",
+              "properties": {
+                "nvct": {
+                  "type": "keyword"
+                },
+                "nvce": {
+                  "type": "date",
+                  "format": "yyyy/MM/dd"
+                },
+                "nvcd": {
+                  "type": "date",
+                  "format": "yyyy/MM/dd"
+                },
+                "nvci": {
+                  "type": "date",
+                  "format": "yyyy/MM/dd"
+                }
+              }
+            },
+            "aln": {
+              "type": "nested",
+              "properties": {
+                "alnt": {
+                  "type": "keyword"
+                },
+                "alnd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "alnn": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "esp": {
+              "type": "nested",
+              "properties": {
+                "espt": {
+                  "type": "keyword"
+                },
+                "espu": {
+                  "type": "keyword"
+                },
+                "espd": {
+                  "type": "date",
+                  "format": "yyyy/MM/dd"
+                }
+              }
+            }
+          }
+        },
+        "do": {
+          "properties": {
+            "fta": {
+              "type": "nested",
+              "properties": {
+                "ftax": {
+                  "type": "keyword"
+                },
+                "ftap": {
+                  "type": "keyword"
+                },
+                "ftaa": {
+                  "type": "keyword"
+                },
+                "ftad": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "ftae": {
+                  "type": "keyword"
+                },
+                "ftac": {
+                  "type": "keyword"
+                },
+                "ftan": {
+                  "type": "keyword"
+                },
+                "ftat": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                },
+                "ftaf": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "dra": {
+              "type": "nested",
+              "properties": {
+                "drax": {
+                  "type": "keyword"
+                },
+                "drat": {
+                  "type": "keyword"
+                },
+                "drao": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                },
+                "dras": {
+                  "type": "keyword"
+                },
+                "drae": {
+                  "type": "keyword"
+                },
+                "drac": {
+                  "type": "keyword"
+                },
+                "dran": {
+                  "type": "keyword"
+                },
+                "draa": {
+                  "type": "keyword"
+                },
+                "drad": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                }
+              }
+            },
+            "vdc": {
+              "type": "nested",
+              "properties": {
+                "vdcx": {
+                  "type": "keyword"
+                },
+                "vdcp": {
+                  "type": "keyword"
+                },
+                "vdcr": {
+                  "type": "keyword"
+                },
+                "vdcd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "vdce": {
+                  "type": "keyword"
+                },
+                "vdca": {
+                  "type": "keyword"
+                },
+                "vdcc": {
+                  "type": "keyword"
+                },
+                "vdcn": {
+                  "type": "keyword"
+                },
+                "vdct": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "reg": {
+              "type": "nested",
+              "properties": {
+                "regx": {
+                  "type": "keyword"
+                },
+                "regp": {
+                  "type": "keyword"
+                },
+                "rega": {
+                  "type": "keyword"
+                },
+                "regd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "rege": {
+                  "type": "keyword"
+                },
+                "regz": {
+                  "type": "keyword"
+                },
+                "regc": {
+                  "type": "keyword"
+                },
+                "regn": {
+                  "type": "keyword"
+                },
+                "regt": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "fnt": {
+              "type": "nested",
+              "properties": {
+                "fntp": {
+                  "type": "keyword"
+                },
+                "fnta": {
+                  "type": "keyword"
+                },
+                "fntt": {
+                  "type": "keyword"
+                },
+                "fntd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "fntf": {
+                  "type": "keyword"
+                },
+                "fntn": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "fnts": {
+                  "type": "keyword"
+                },
+                "fnti": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "adm": {
+              "type": "nested",
+              "properties": {
+                "admx": {
+                  "type": "keyword"
+                },
+                "admp": {
+                  "type": "keyword"
+                },
+                "adma": {
+                  "type": "keyword"
+                },
+                "admd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                },
+                "adme": {
+                  "type": "keyword"
+                },
+                "admc": {
+                  "type": "keyword"
+                },
+                "admn": {
+                  "type": "keyword"
+                },
+                "admt": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard"
+                }
+              }
+            },
+            "bib": {
+              "type": "nested",
+              "properties": {
+                "bibx": {
+                  "type": "keyword"
+                },
+                "ncun": {
+                  "type": "keyword"
+                },
+                "biba": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "bibd": {
+                  "type": "date",
+                  "format": "yyyy"
+                },
+                "bibh": {
+                  "type": "keyword"
+                },
+                "bibn": {
+                  "type": "keyword"
+                },
+                "bibi": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "bil": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "mst": {
+              "type": "nested",
+              "properties": {
+                "mstt": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                },
+                "mstl": {
+                  "type": "keyword"
+                },
+                "mstd": {
+                  "type": "date",
+                  "format": "yyyy||yyyy GGGG||yyyy-yyyy||yyyy GGGG-yyyy GGGG||yyyy/MM/dd||yyyy/MM/dd-yyyy/MM/dd"
+                }
+              }
+            }
+          }
+        },
+        "ad": {
+          "properties": {
+            "ads": {
+              "properties": {
+                "adsp": {
+                  "type": "short"
+                },
+                "adsm": {
+                  "type": "keyword"
+                },
+                "adsd": {
+                  "type": "date",
+                  "format": "yyyy/MM/dd"
+                }
+              }
+            }
+          }
+        },
+        "cm-not-analyzed": {
+          "type": "text",
+          "analyzer": "standard",
+          "search_analyzer": "standard"
+        },
+        "cm": {
+          "properties": {
+            "cmpd": {
+              "type": "date",
+              "format": "yyyy"
+            },
+            "cmpn": {
+              "type": "keyword"
+            },
+            "rsr": {
+              "type": "keyword"
+            },
+            "fur": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard",
+              "fields": {
+                "raw": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "rvmd": {
+              "type": "date",
+              "format": "yyyy"
+            },
+            "rvmn": {
+              "type": "keyword"
+            },
+            "agg": {
+              "type": "nested",
+              "properties": {
+                "addg": {
+                  "type": "date",
+                  "format": "yyyy"
+                },
+                "aggn": {
+                  "type": "keyword"
+                },
+                "agge": {
+                  "type": "keyword"
+                },
+                "aggr": {
+                  "type": "keyword"
+                },
+                "aggf": {
+                  "type": "text",
+                  "analyzer": "standard",
+                  "search_analyzer": "standard",
+                  "fields": {
+                    "raw": {
+                      "type": "keyword"
+                    }
+                  }
+                }
+              }
+            },
+            "isp": {
+              "type": "nested",
+              "properties": {
+                "ispd": {
+                  "type": "date",
+                  "format": "yyyy/MM/dd"
+                },
+                "ispn": {
+                  "type": "keyword"
+                }
+              }
+            }
+          }
+        },
+        "an": {
+          "properties": {
+            "oss": {
+              "type": "text",
+              "analyzer": "standard",
+              "search_analyzer": "standard"
+            }
+          }
+        }
+      }
+    }
+  }
+}

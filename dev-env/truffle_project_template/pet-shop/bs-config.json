@@ -1,0 +1,5 @@
+{
+  "server": {
+    "baseDir": ["./src", "./build/contracts", "./finalize_migration/OA3_0/restore", "finalize_migration/RA3_0/restore"]
+  }
+}

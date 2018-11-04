@@ -1,0 +1,138 @@
+version: '3'
+services:
+
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:6.4.1
+        container_name: elasticsearch
+        ports:
+            - "127.0.0.1:9200:9200"
+            - "127.0.0.1:9300:9300"
+        volumes:
+            - ${ELASTICSEARCH_DATA_FOLDER}:/usr/share/elasticsearch/data
+            - ${ELASTICSEARCH_CONF_FOLDER}/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+
+    kibana:
+        image: docker.elastic.co/kibana/kibana:6.4.1
+        container_name: kibana
+        environment:
+            - ELASTICSEARCH_URL=http://elasticsearch:9200
+        ports:
+            - "5601:5601"
+        depends_on:
+            - elasticsearch
+
+    ipfs_peer1:
+        image: jbenet/go-ipfs
+        container_name: ipfs_peer1
+        ports:
+            - "4001:4001"
+            - "8080:8080"
+            - "127.0.0.1:5001:5001"
+        volumes:
+            - ${IPFS_PEER1_STAGING_FOLDER}:/export
+            - ${IPFS_PEER1_DATA_FOLDER}:/data/ipfs
+            #- distribution:/dist
+
+    #ipfs_peer2:
+    #    image: jbenet/go-ipfs
+    #    container_name: ipfs_peer2
+    #    ports:
+    #        - "4002:4001"
+    #        - "8081:8080"
+    #        - "127.0.0.1:5002:5001"
+    #    volumes:
+    #        - ${IPFS_PEER2_STAGING_FOLDER}:/export
+    #        - ${IPFS_PEER2_DATA_FOLDER}:/data/ipfs  
+
+    ganache_cli:
+        image: trufflesuite/ganache-cli
+        container_name: ganache_cli
+        command: ganache-cli --account="0x595fb4c6ca5a8aebfa76eb7cf7e2d4589492f9947e8efe19f4d576e9f05d2dbc,100000000000000000000" --account="0xb358ca2700f27a70e841b999f1cef4364968ed9cbcaa7e0ed7cf1287cd280b1a,100000000000000000000" --account="0xd41a5b07002da417b98307c6fc7a0373a887da5ca24eb04be1720df0b60d291a,100000000000000000000" --networkId 2307 --db /data/ganache-cli -g 10000000000 -l 8000029 -v
+        ports:
+            - "127.0.0.1:8545:8545"
+        volumes:
+            - ${GANACHE_CLI_ETHEREUM_FOLDER}:/data/ganache-cli
+
+    cultural_good:
+        build:
+            context: ${TRUFFLE_PROJECT_FOLDER}
+            dockerfile: ${DOCKERFILE}
+        image: cultural_good_truffle
+        container_name: cultural_good_app
+        command: bash
+        stdin_open: true
+        tty: true
+        ports:
+            - "3000:3000"
+        volumes:
+            #- distribution:/cultural-good/dist
+            - ${LOGSTASH_OA_FOLDER}/imgs:/cultural-good/external_res/OA3_0/imgs
+            - ${LOGSTASH_RA_FOLDER}/imgs:/cultural-good/external_res/RA3_0/imgs
+            - ${LOGSTASH_OA_FOLDER}/restore/res:/cultural-good/external_res/OA3_0/restore
+            - ${LOGSTASH_RA_FOLDER}/restore/res:/cultural-good/external_res/RA3_0/restore
+            - ${CULTURAL_GOOD_PROJECT_FOLDER}:/cultural-good
+        depends_on:
+            - ganache_cli
+
+    openiccd_oa_migration:
+        build:
+            context: ${LOGSTASH_OA_FOLDER}
+            dockerfile: ${DOCKERFILE}
+        image: openiccd_oa_migration_logstash
+        container_name: oa_migration
+        ports:
+            - "127.0.0.1:9600:9600"
+        volumes:
+            - ${LOGSTASH_OA_FOLDER}:/usr/share/logstash/OA3_0/toscana
+        depends_on:
+            - elasticsearch
+
+    openiccd_ra_migration:
+        build:
+            context: ${LOGSTASH_RA_FOLDER}
+            dockerfile: ${DOCKERFILE}
+        image: openiccd_ra_migration_logstash
+        container_name: ra_migration
+        ports:
+            - "127.0.0.1:9601:9600"
+        volumes:
+            - ${LOGSTASH_RA_FOLDER}:/usr/share/logstash/RA3_0/toscana
+        depends_on:
+            - elasticsearch
+
+    openiccd_oa_restore:
+        build:
+            context: ${LOGSTASH_OA_FOLDER}/restore
+            dockerfile: ${DOCKERFILE}
+        image: openiccd_oa_restore_logstash
+        container_name: oa_restore
+        ports:
+            - "127.0.0.1:9602:9600"
+        volumes:
+            - ${LOGSTASH_OA_FOLDER}/restore/:/usr/share/logstash/OA3_0/toscana
+        depends_on:
+            - elasticsearch
+
+    openiccd_ra_restore:
+        build:
+            context: ${LOGSTASH_RA_FOLDER}/restore
+            dockerfile: ${DOCKERFILE}
+        image: openiccd_ra_restore_logstash
+        container_name: ra_restore
+        ports:
+            - "127.0.0.1:9603:9600"
+        volumes:
+            - ${LOGSTASH_RA_FOLDER}/restore/:/usr/share/logstash/RA3_0/toscana
+        depends_on:
+            - elasticsearch
+
+#volumes:
+    #distribution:
+
+    #grafana:
+    #   image: grafana/grafana
+    #   container_name: grafana
+    #   ports:
+    #   - "3000:3000"
+    #   volumes:
+    #   - ${GRAFANA_DATA_FOLDER}:/var/lib/grafana

@@ -1,0 +1,1 @@
+browserify exportsToBrowserify.js -o ../src/js/exports.js
