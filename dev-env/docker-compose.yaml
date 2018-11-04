@@ -73,6 +73,8 @@ services:
             - ${CULTURAL_GOOD_PROJECT_FOLDER}:/cultural-good
         depends_on:
             - ganache_cli
+            - elasticsearch
+            - ipfs_peer1
 
     openiccd_oa_migration:
         build:
