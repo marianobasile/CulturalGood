@@ -116,7 +116,28 @@ $ ./utils/init_dapp.sh
 - Switch to localhost 8545.
 
 ## Step 15. Launch lite-server
-Use cultural_good_app container terminal to launch lite-server for serving the client-side of the Dapp:
+Use the cultural_good_app container terminal to launch lite-server for serving the client-side of the Dapp:
 ```
 $ npm run dev
 ```
+
+## Restore Elasticsearch indices
+In the cultural_good_app container terminal type:
+```
+$ cd cultural-good
+$ truffle exec ./utils/restoreDbViaBlockchain.js
+```
+
+According to the Elasticsearch index previously specified, open a new terminal and type:
+```
+$ cd DEV-ENV
+$ docker-compose up openiccd_oa_restore
+```
+or
+```
+$ cd DEV-ENV
+$ docker-compose up openiccd_ra_restore
+```
+or both in two different terminals.
+
+
