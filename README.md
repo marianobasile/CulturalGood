@@ -21,6 +21,12 @@ At this point a DEV-ENV folder should be available under the home directory.
 ## Step 3. Start Docker daemon
 Start Docker
 
+( Images are no more available in the ICCD open data after the ICCD old website shutdown (end of October, 2018). 
+  You can download from here:
+  OA_IMGS: https://drive.google.com/open?id=1l_-_r4Q2yGMnhGT3Oqxzq6_3nua4Wd_L
+  RA_IMGS: https://drive.google.com/open?id=1e1IQJe9NXR12HtMSvxQ7zHwK5jVUxHUs 
+)
+
 ## Step 4. Start openiccd_oa_migration
 Open a new terminal and type:
 ```
