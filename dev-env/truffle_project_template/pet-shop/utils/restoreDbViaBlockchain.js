@@ -130,22 +130,26 @@ module.exports = function(callback) {
 							 * We need to respect this ordering while restoring the ES indices! */
 							let associatedOpsCount = [];
 
+							let opCount = 0;
+
 				      for(let j = 0; j < logs.length; j++) {
 
 				      	//console.log(logs[j]);
 
-				      	console.log('\n================ OPERATION COUNT:' + j + ' BLOCK #:' + logs[j].blockNumber + '================\n');
+				      	opCount = j + 1; 
+
+				      	console.log('\n================ OPERATION COUNT:' + opCount + ' BLOCK #:' + logs[j].blockNumber + '================\n');
 				        //console.log(j + ') Block Number: ' + logs[j].blockNumber);
 				        //console.log(j + ') dbCID: ' + logs[j].args.dbCID);
 
-				        let hexMultihash = fnCodeCIDv0 + fnLengthCIDv0 + logs[j].args.dbCID.slice(2);
+				        let hexMultihash = fnCodeCIDv0 + fnLengthCIDv0 + logs[j].args.ipfsLink.slice(2);
 				        //console.log(hexMultihash);
 				        let multihashBuffer = multihashes.fromHexString(hexMultihash);
 				        let base58OperationCID = multihashes.toB58String(multihashBuffer);
 
 				        console.log('Tipologia bene: '+ esIndexesToRestore[i]);
 				        console.log('base58 dbCID: '+ base58OperationCID);
-				        console.log('\n================ END OPERATION COUNT:' + j + ' BLOCK #:' + logs[j].blockNumber + '================\n\n');
+				        console.log('\n================ END OPERATION COUNT:' + opCount + ' BLOCK #:' + logs[j].blockNumber + '================\n\n');
 
 
 				        promisesToBeResolved.push(ipfs.files.cat(base58OperationCID));
